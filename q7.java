@@ -4,12 +4,18 @@ import java.util.Scanner;
 
 
 public class q7 {
+
+    public static void check(int b)throws Exception{
+        if(b==1){
+            throw new Exception("you can add number when array is zero !");
+        }
+    }
     public static void main(String[] args) {
         try {
-
             Scanner inp = new Scanner(System.in);
             System.out.println("enter the size of the array !");
             int num1 = inp.nextInt();
+            check(num1);
             int arr [] = new int [num1];
             int counter =0;
             System.out.println("1 Accept elements of an array\n" +
@@ -85,8 +91,13 @@ public class q7 {
         }catch (ArrayIndexOutOfBoundsException e){
             System.out.println(e.getMessage());
         }
-        catch (InputMismatchException e1){
+        catch (InputMismatchException e){
     System.out.println("you can not enter a string !");}
+        catch (NegativeArraySizeException e){
+            System.out.println("the size can not be in negative ");
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
 
 
         System.out.println("the code stop !");
