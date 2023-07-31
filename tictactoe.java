@@ -177,7 +177,7 @@ public class tictactoe {
         } else return false;
     }
 
-    public static boolean validMoveByUser(String a) {
+    public static boolean validMoveByUser(String a) throws Exception{
         switch (a) {
             case "1":
                 if (arr[0][0] == ' ') {
@@ -243,14 +243,15 @@ public class tictactoe {
                     return false;
                 }
             default:
-                System.out.println("invalid enter please enter between 1-9");
-                return false;
+                throw new Exception("it is wrong because u enter invalid input must between 1-9");
         }
     }
 
     public static void main(String[] args) {
         Random ran = new Random();
         int tie = 0;
+        try {
+
         while (true) {
             System.out.println("enter number between 1-9 !");
             //check user only take empty place and must enter between 1-9 !
@@ -286,5 +287,7 @@ public class tictactoe {
 
             }
         }
+    }catch (Exception e){
+            System.out.println(e.getMessage());}
     }
 }
